@@ -120,6 +120,7 @@
   networking = {
     networkmanager.enable = true;
   };
+  security.rtkit.enable = true;
 
   # Set environment variables
   environment.variables = {
