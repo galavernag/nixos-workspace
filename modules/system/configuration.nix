@@ -7,6 +7,7 @@
     pfetch-rs
     eza
     gh
+    polkit polkit_gnome
   ];
   
   # Install fonts
@@ -45,6 +46,26 @@
     '';
   };
 
+  security.polkit = {
+    enable = true;
+  };
+
+  systemd = {
+  user.services.polkit-gnome-authentication-agent-1 = {
+    description = "polkit-gnome-authentication-agent-1";
+    wantedBy = [ "graphical-session.target" ];
+    wants = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+    serviceConfig = {
+        Type = "simple";
+        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
+  };
+};
+ 
   boot = {
     loader = {
       #systemd-boot.enable = true;
@@ -98,12 +119,6 @@
   # Set up networking and secure it
   networking = {
     networkmanager.enable = true;
-    firewall = {
-      enable = true;
-      allowedTCPPorts = [ 443 80 ];
-      allowedUDPPorts = [ 443 80 44857 ];
-      allowPing = false;
-    };
   };
 
   # Set environment variables
