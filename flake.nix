@@ -7,9 +7,17 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
-    let system = "x86_64-linux";
-    in {
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }:
+    let
+      system = "x86_64-linux";
+    in
+    {
       nixosConfigurations = {
         nixos-desktop = nixpkgs.lib.nixosSystem {
           inherit system;
@@ -28,9 +36,9 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "backup";
 
-              home-manager.users.galavernag =
-                import ./users/galavernag/home.nix;
+              home-manager.users.galavernag = import ./users/galavernag/home.nix;
             }
           ];
         };
