@@ -19,10 +19,10 @@
     in
     {
       nixosConfigurations = {
-        nixos-desktop = nixpkgs.lib.nixosSystem {
+        nixos = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            ./hosts/nixos-desktop/configuration.nix
+            ./hosts/nixos/configuration.nix
 
             ./modules/core/audio.nix
             ./modules/core/networking.nix
