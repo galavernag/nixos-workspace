@@ -7,6 +7,12 @@
 
 {
 
+  imports = [
+    ./apps/default.nix
+  ];
+
+  apps.vscode.enable = true;
+
   home.username = "galavernag";
   home.homeDirectory = lib.mkForce "/home/galavernag";
 
@@ -18,7 +24,6 @@
     git
     discord
     spotify
-    vscode
     nixfmt
     orca-slicer
     parsec-bin
