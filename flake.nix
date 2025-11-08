@@ -1,23 +1,39 @@
 {
   description = "NixOS Workspaces";
 
-  inputs = { nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable"; };
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+  };
 
-  outputs = { self, nixpkgs }:
-    let pkgs = import nixpkgs { inherit system; };
+  outputs = { self, nixpkgs, home-manager, ... }:
+    let system = "x86_64-linux";
     in {
-      inherit system;
-      nixosConfigurations.nixos-desktop = pkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./modules/core/audio.nix
-          ./modules/core/networking.nix
-          ./modules/core/locale.nix
-          ./modules/core/system.nix
+      nixosConfigurations = {
+        nixos-desktop = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./hosts/nixos-desktop/configuration.nix
 
-          # Desktop Environments
-          ./modules/desktop/cosmic.nix
-        ];
+            ./modules/core/audio.nix
+            ./modules/core/networking.nix
+            ./modules/core/locale.nix
+            ./modules/core/system.nix
+
+            # Desktop Environments
+            ./modules/desktop/cosmic.nix
+
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+
+              home-manager.users.galavernag =
+                import ./users/galavernag/home.nix;
+            }
+          ];
+        };
       };
     };
 }
