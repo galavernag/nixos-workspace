@@ -12,9 +12,7 @@
   };
 
   config = lib.mkIf config.apps.docker.enable {
-    home.packages = [
-      pkgs.docker
-      pkgs.docker-compose
-    ];
+    virtualisation.docker.enable = true;
+    users.users.galavernag.extraGroups = [ "docker" ];
   };
 }

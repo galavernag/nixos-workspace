@@ -13,6 +13,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ../../modules/apps/default.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -26,7 +27,6 @@
     isNormalUser = true;
     extraGroups = [
       "wheel"
-      "docker"
     ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
@@ -35,5 +35,8 @@
     ];
   };
 
-  virtualisation.docker.enable = true;
+  # Enable apps
+
+  apps.steam.enable = true;
+  apps.docker.enable = true;
 }
