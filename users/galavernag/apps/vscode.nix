@@ -58,6 +58,9 @@
         "*.css" = "tailwindcss";
       };
       "workbench.sideBar.location" = "right";
+      "[nix]" = {
+        "editor.defaultFormatter" = "jnoortheen.nix-ide";
+      };
     };
   };
 }

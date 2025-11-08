@@ -2,10 +2,16 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 
@@ -18,8 +24,16 @@
 
   users.users.galavernag = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [ tree nerd-fonts.jetbrains-mono tmux ];
+    extraGroups = [
+      "wheel"
+      "docker"
+    ]; # Enable ‘sudo’ for the user.
+    packages = with pkgs; [
+      tree
+      nerd-fonts.jetbrains-mono
+      tmux
+    ];
   };
-}
 
+  virtualisation.docker.enable = true;
+}
