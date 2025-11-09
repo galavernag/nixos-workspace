@@ -23,11 +23,6 @@
 
   desktop.cosmic.enable = false;
   desktop.hyprland.enable = true;
-    
-  environment.systemPackages = with pkgs; [
-    kitty
-  ];
-
 
   networking.hostName = "nixos";
 }

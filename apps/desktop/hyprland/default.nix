@@ -33,5 +33,14 @@
 
     # Fix X11 rather than Wayland
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+    # Install aditional packages
+    environment.systemPackages = with pkgs; [
+      wofi
+      hyprpaper
+      kitty
+      kdePackages.dolphin
+    ];
+
   };
 }

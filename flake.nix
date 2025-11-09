@@ -34,8 +34,9 @@
             ./modules/system/networking.nix
             ./modules/system/nix.nix
             ./modules/system/system.nix
+            ./modules/system/services.nix
 
-            # User definition
+            # User definition (System-wide)
             ./modules/users/galavernag.nix
 
             # Apps
