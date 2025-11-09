@@ -51,10 +51,7 @@
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
 
-              home-manager.users.galavernag = import ./users/galavernag/home.nix {
-                inherit pkgs lib;
-                pywalModule = inputs."pywal-nix".homeManagerModules.${system}.default;
-              };
+              home-manager.users.galavernag = import ./users/galavernag/home.nix
             }
           ];
         };
