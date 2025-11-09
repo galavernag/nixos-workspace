@@ -23,7 +23,5 @@
 
   desktop.cosmic.enable = true;
 
-  apps.waybar.enable = true;
-
   networking.hostName = "nixos";
 }
