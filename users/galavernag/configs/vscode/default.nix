@@ -5,5 +5,5 @@
   ...
 }:
 {
-  home.file.".config/Code/User/settings.json".source = ./config.json;
+  home.file.".config/Code/User/settings.json".source = ./settings.json;
 }
