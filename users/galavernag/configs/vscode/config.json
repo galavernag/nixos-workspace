@@ -1,0 +1,33 @@
+{
+  "[nix]": { "editor.defaultFormatter": "jnoortheen.nix-ide" },
+  "chat.commandCenter.enabled": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.ts": "always",
+    "source.organizeImports": "always"
+  },
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorStyle": "line",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.fontFamily": "JetBrainsMono Nerd Font",
+  "editor.fontLigatures": true,
+  "editor.formatOnSave": true,
+  "editor.lineHeight": 1.6,
+  "editor.minimap.enabled": false,
+  "editor.smoothScrolling": true,
+  "editor.tabSize": 2,
+  "explorer.compactFolders": false,
+  "files.associations": { "*.css": "tailwindcss" },
+  "window.commandCenter": false,
+  "window.dialogStyle": "custom",
+  "window.menuBarVisibility": "compact",
+  "window.titleBarStyle": "custom",
+  "workbench.activityBar.location": "hidden",
+  "workbench.colorTheme": "Vesper Vibrant",
+  "workbench.iconTheme": "symbols",
+  "workbench.layoutControl.enabled": false,
+  "workbench.list.smoothScrolling": true,
+  "workbench.productIconTheme": "fluent-icons",
+  "workbench.sideBar.location": "right",
+  "workbench.statusBar.visible": false
+}

@@ -24,5 +24,7 @@
   desktop.cosmic.enable = false;
   desktop.hyprland.enable = true;
 
+  apps.waybar.enable = true;
+
   networking.hostName = "nixos";
 }

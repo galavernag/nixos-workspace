@@ -6,7 +6,7 @@
 }:
 {
   imports = [
-    ./vscode.nix
+    ./vscode/default.nix
     ./hyprland/default.nix
   ];
 }
