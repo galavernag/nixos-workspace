@@ -7,5 +7,6 @@
 {
   imports = [
     ./cosmic.nix
+    ./hyprland/default.nix
   ];
 }
