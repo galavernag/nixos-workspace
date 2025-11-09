@@ -5,11 +5,10 @@
   ...
 }:
 {
-
   options.apps.steam.enable = lib.mkOption {
     type = lib.types.bool;
-    default = false;
-    description = "Enable Steam";
+    default = true;
+    description = "Enable Steam gaming platform.";
   };
 
   config = lib.mkIf config.apps.steam.enable {

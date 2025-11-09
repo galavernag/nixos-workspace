@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -12,6 +13,7 @@
       self,
       nixpkgs,
       home-manager,
+      nix-flatpak,
       ...
     }:
     let
@@ -22,16 +24,24 @@
         nixos = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            ./hosts/nixos/configuration.nix
+            # Host-specific configuration
+            ./hosts/nixos/default.nix
 
-            ./modules/core/audio.nix
-            ./modules/core/networking.nix
-            ./modules/core/locale.nix
-            ./modules/core/system.nix
+            # Default system modules
+            ./modules/bootloader/systemd.nix
+            ./modules/system/audio.nix
+            ./modules/system/locale.nix
+            ./modules/system/networking.nix
+            ./modules/system/nix.nix
+            ./modules/system/system.nix
 
-            # Desktop Environments
-            ./modules/desktop/cosmic.nix
+            # User definition
+            ./modules/users/galavernag.nix
 
+            # Apps
+            ./apps/default.nix
+
+            nix-flatpak.nixosModules.nix-flatpak
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
