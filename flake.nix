@@ -4,18 +4,20 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    pywal-nix.url = "github:Fuwn/pywal.nix";
+    pywal-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
     {
       self,
       nixpkgs,
-      home-manager,
-      nix-flatpak,
       ...
-    }:
+    }@inputs:
     let
       system = "x86_64-linux";
     in
@@ -37,19 +39,22 @@
             ./modules/system/services.nix
 
             # User definition (System-wide)
-            ./modules/users/galavernag.nix
+            ./modules/users.nix
 
             # Apps
             ./apps/default.nix
 
-            nix-flatpak.nixosModules.nix-flatpak
-            home-manager.nixosModules.home-manager
+            inputs."nix-flatpak".nixosModules.nix-flatpak
+            inputs.home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
 
-              home-manager.users.galavernag = import ./users/galavernag/home.nix;
+              home-manager.users.galavernag = import ./users/galavernag/home.nix {
+                inherit pkgs lib;
+                pywalModule = inputs."pywal-nix".homeManagerModules.${system}.default;
+              };
             }
           ];
         };

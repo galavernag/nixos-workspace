@@ -1,14 +1,9 @@
 {
-  config,
-  lib,
-  pkgs,
-  ...
-}:
-{
-
   imports = [
     ./configs/default.nix
   ];
+
+  modules = if pywalModule != null then [ pywalModule ] else [ ];
 
   home.username = "galavernag";
   home.homeDirectory = lib.mkForce "/home/galavernag";

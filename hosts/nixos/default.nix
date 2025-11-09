@@ -21,7 +21,8 @@
   apps.vscode.enable = true;
   apps.steam.enable = true;
 
-  desktop.cosmic.enable = true;
+  desktop.cosmic.enable = false;
+  desktop.hyprland.enable = true;
 
   networking.hostName = "nixos";
 }
