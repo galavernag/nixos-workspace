@@ -21,8 +21,7 @@
   apps.vscode.enable = true;
   apps.steam.enable = true;
 
-  desktop.cosmic.enable = false;
-  desktop.hyprland.enable = true;
+  desktop.cosmic.enable = true;
 
   apps.waybar.enable = true;
 
