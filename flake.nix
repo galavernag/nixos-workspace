@@ -8,7 +8,7 @@
     sops-nix.url = "github:Mic92/sops-nix";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
   let
     systemArchitecture = "x86_64-linux";
     lib = nixpkgs.lib;
@@ -25,6 +25,11 @@
 
           ./modules/default.nix
           ./modules/system/default.nix
+
+          {
+            modules.virtualisation.enable = true;
+          }
+
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -32,11 +37,7 @@
             # Aqui passamos as variáveis para os módulos do Home Manager
             home-manager.extraSpecialArgs = { inherit inputs; };
 
-            home-manager.users."galavernag" = import ./users/galavernag/home.nix
-          }
-
-          {
-            modules.virtualisation.enable = true;
+            home-manager.users."galavernag" = import ./users/galavernag/home.nix;
           }
         ];
       };

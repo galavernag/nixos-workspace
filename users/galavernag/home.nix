@@ -1,6 +1,8 @@
+{ pkgs, ... }:
 {
   home.username = "galavernag";
   home.homeDirectory = "/home/galavernag";
+  home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
     fastfetch
@@ -9,10 +11,7 @@
     zip
     spotify
     discord
-    kitty
   ];
-
-  programs.hyprland.enable = true;
 
   programs.git = {
     enable = true;
