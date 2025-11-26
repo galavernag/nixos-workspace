@@ -13,6 +13,8 @@
     discord
   ];
 
+  programs.niri.enable = true;
+
   programs.git = {
     enable = true;
     userName = "Guilherme Galaverna";
