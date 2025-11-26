@@ -1,4 +1,4 @@
-{ config, pkgs, lib, username, ... }:
+{ config, pkgs, lib, ... }:
 let
   cfg = config.modules.virtualisation;
 in {
@@ -22,6 +22,6 @@ in {
 
     programs.virt-manager.enable = true;
     virtualisation.spiceUSBRedirection.enable = true;
-    users.users."${username}".extraGroups = [ "libvirtd" "docker" ];
+    users.users.galavernag.extraGroups = [ "libvirtd" "docker" ];
   };
 }

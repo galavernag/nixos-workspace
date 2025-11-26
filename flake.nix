@@ -3,19 +3,26 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    sops-nix.url = "github:Mic92/sops-nix";
   };
 
-  outputs = { self, nixpkgs }:
+  outputs = { self, nixpkgs, ... }@inputs:
   let
-    system = nixpkgs.lib.nixosSystem;
-    username = "galavernag";
+    systemArchitecture = "x86_64-linux";
+    lib = nixpkgs.lib;
   in {
     nixosConfigurations = {
-      desktop = system {
-        specialArgs = { inputs, username };
+      desktop = lib.nixosSystem {
+        system = systemArchitecture;
+        specialArgs = { inherit inputs; };
+
         modules = [
+          inputs.sops-nix.nixosModules.sops
+
           ./hosts/desktop/configuration.nix
+
           ./modules/default.nix
+          ./modules/system/default.nix
 
           {
             modules.virtualisation.enable = true;
