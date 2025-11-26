@@ -8,12 +8,18 @@
   outputs = { self, nixpkgs }:
   let
     system = nixpkgs.lib.nixosSystem;
+    username = "galavernag";
   in {
     nixosConfigurations = {
       desktop = system {
-        specialArgs = { inputs };
+        specialArgs = { inputs, username };
         modules = [
           ./hosts/desktop/configuration.nix
+          ./modules/default.nix
+
+          {
+            modules.virtualisation.enable = true;
+          }
         ];
       };
     };
