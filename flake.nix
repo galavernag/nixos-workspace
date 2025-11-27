@@ -6,6 +6,10 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -27,6 +31,8 @@
           ./modules/system/default.nix
 
           {
+            programs.hyprland.enable = true;
+            programs.niri.enable = true;
             modules.virtualisation.enable = true;
           }
 

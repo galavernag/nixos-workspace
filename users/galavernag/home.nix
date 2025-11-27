@@ -2,7 +2,7 @@
 {
   home.username = "galavernag";
   home.homeDirectory = "/home/galavernag";
-  home.stateVersion = "25.11";
+  home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
     fastfetch
@@ -11,10 +11,15 @@
     zip
     spotify
     discord
+    kitty
+    wofi
+    zed-editor
+    fuzzel
+    firefox
   ];
 
-  programs.niri.enable = true;
-
+  ## Hyprland
+  programs.kitty.enable = true; # required for the default Hyprland config
   programs.git = {
     enable = true;
     userName = "Guilherme Galaverna";
