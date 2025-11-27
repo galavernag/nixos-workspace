@@ -10,6 +10,7 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.6.0";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -31,10 +32,23 @@
           ./modules/system/default.nix
 
           {
-            programs.hyprland.enable = true;
             programs.niri.enable = true;
+            services.flatpak.enable = true;
+
             modules.virtualisation.enable = true;
           }
+
+          ({ pkgs, ...}: {
+            environment.sessionVariables = {
+              XDG_CURRENT_DESKTOP = "niri";
+              XDG_SESSION_TYPE = "wayland";
+              XDG_SESSION_DESKTOP = "niri";
+            };
+            environment.systemPackages = with pkgs; [
+              xdg-desktop-portal-gnome
+              xdg-desktop-portal-gtk
+            ];
+          })
 
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
