@@ -24,28 +24,32 @@
         specialArgs = { inherit inputs; };
 
         modules = [
+          # Core configuration and hardware
           inputs.sops-nix.nixosModules.sops
-
           ./hosts/desktop/configuration.nix
 
-          ./modules/default.nix
-          ./modules/system/default.nix
+          # System-level modules
+          ./modules/system/audio.nix
+          ./modules/system/boot.nix
+          ./modules/system/locale.nix
+          ./modules/system/networking.nix
+          ./modules/system/users.nix
+          ./modules/system/secrets.nix
 
+          # Feature modules
+          ./modules/gaming.nix
+          ./modules/virtualisation.nix
+
+          # Desktop Environment and applications
           ./modules/environment/niri.nix
           ./modules/environment/flatpak.nix
           ./modules/environment/noctalia-shell.nix
 
-          {
-            modules.virtualisation.enable = true;
-          }
-
+          # User configuration
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-
-            # Aqui passamos as variáveis para os módulos do Home Manager
             home-manager.extraSpecialArgs = { inherit inputs; };
-
             home-manager.users."galavernag" = import ./users/galavernag/home.nix;
           }
         ];
