@@ -1,0 +1,58 @@
+{
+  description = "A very basic flake";
+
+  inputs = {
+     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+     nix-flatpak.url = "github:gmodena/nix-flatpak";
+     home-manager = {
+      url = "github:nix-community/home-manager/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+     };
+  };
+
+outputs = { self, nixpkgs, nixpkgs-unstable, nix-flatpak, home-manager } @ inputs:
+    let
+      system = "x86_64-linux";
+      nixpkgs-stable = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+      nixpkgs-unstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
+    in
+      { nixosConfigurations = {
+        nixos = nixpkgs.lib.nixosSystem { # Replace "nixos" with your system's hostname
+          specialArgs = {
+            inherit inputs nixpkgs-stable nixpkgs-unstable;
+          };
+          system = "x86_64-linux";
+          modules = [
+            nix-flatpak.nixosModules.nix-flatpak
+            ./hosts/nixos/configuration.nix
+
+            ./modules/audio.nix
+            ./modules/desktop.nix
+            ./modules/flatpak.nix
+            ./modules/localisation.nix
+            ./modules/networking.nix
+            ./modules/nix-settings.nix
+            ./modules/services.nix
+            ./modules/users.nix
+
+            ./applications/steam.nix
+            ./applications/niri.nix
+
+       	    home-manager.nixosModules.home-manager {
+       	      home-manager.useGlobalPkgs = true;
+       	      home-manager.useUserPackages = true;
+
+       	      home-manager.users.galavernag = ./users/galavernag/home.nix;
+       	    }
+          ];
+        };
+      };
+  };
+}
