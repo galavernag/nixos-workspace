@@ -31,7 +31,5 @@
     usbutils
   ];
 
-  xdg.configFile."niri/config.kdl".source = ./dotfiles/niri/config.kdl;
-
   programs.home-manager.enable = true;
 }

@@ -1,7 +1,7 @@
-{ nixpkgs-stable, ... }: {
+{ pkgs-stable, ... }: {
   programs.steam = {
     enable = true;
-    package = nixpkgs-stable.steam;
+    package = pkgs-stable.steam;
 
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;

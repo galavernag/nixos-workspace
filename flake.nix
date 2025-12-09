@@ -14,11 +14,13 @@
 outputs = { self, nixpkgs, nixpkgs-unstable, nix-flatpak, home-manager } @ inputs:
     let
       system = "x86_64-linux";
-      nixpkgs-stable = import nixpkgs {
+
+      pkgs-stable = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
       };
-      nixpkgs-unstable = import nixpkgs-unstable {
+
+      pkgs-unstable = import inputs.nixpkgs-unstable {
         inherit system;
         config.allowUnfree = true;
       };
@@ -26,7 +28,7 @@ outputs = { self, nixpkgs, nixpkgs-unstable, nix-flatpak, home-manager } @ input
       { nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem { # Replace "nixos" with your system's hostname
           specialArgs = {
-            inherit inputs nixpkgs-stable nixpkgs-unstable;
+            inherit inputs pkgs-stable pkgs-unstable;
           };
           system = "x86_64-linux";
           modules = [
@@ -44,6 +46,7 @@ outputs = { self, nixpkgs, nixpkgs-unstable, nix-flatpak, home-manager } @ input
 
             ./applications/steam.nix
             ./applications/niri.nix
+            ./applications/orca-slicer.nix
 
        	    home-manager.nixosModules.home-manager {
        	      home-manager.useGlobalPkgs = true;
