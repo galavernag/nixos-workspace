@@ -4,6 +4,7 @@
     packages = [
       "app.zen_browser.zen"
       "com.discordapp.Discord"
+      "com.usebottles.bottles"
     ];
     update.auto = {
       enable = true;

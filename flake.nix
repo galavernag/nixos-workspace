@@ -43,10 +43,12 @@ outputs = { self, nixpkgs, nixpkgs-unstable, nix-flatpak, home-manager } @ input
             ./modules/nix-settings.nix
             ./modules/services.nix
             ./modules/users.nix
+            ./modules/wine.nix
 
-            ./applications/steam.nix
+            ./applications/nh.nix
             ./applications/niri.nix
             ./applications/orca-slicer.nix
+            ./applications/steam.nix
 
        	    home-manager.nixosModules.home-manager {
        	      home-manager.useGlobalPkgs = true;
