@@ -8,9 +8,9 @@
 
     ./applications/niri/default.nix
 
+    ./applications/alacritty.nix
     ./applications/flatpak.nix
     ./applications/git.nix
-    ./applications/kitty.nix
     ./applications/noctalia.nix
     ./applications/starship.nix
     ./applications/zsh.nix
