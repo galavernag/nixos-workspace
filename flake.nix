@@ -64,7 +64,6 @@
 
             ./applications/nh.nix
             ./applications/niri.nix
-            ./applications/orca-slicer.nix
 
             home-manager.nixosModules.home-manager
             {
