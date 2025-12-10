@@ -1,25 +1,18 @@
 { config, pkgs, nix-flatpak, ... }:
 {
   imports = [
-    nix-flatpak.homeManagerModules.nix-flatpak
+    ./modules/environment-variables.nix
+
+    ./applications/flatpak.nix
+    ./applications/git.nix
+    ./applications/starship.nix
+    ./applications/zsh.nix
   ];
 
   home.username = "galavernag";
   home.homeDirectory = "/home/galavernag";
 
   home.stateVersion = "25.11";
-
-  home.sessionVariables = {
-    NH_OS_FLAKE = "${config.home.homeDirectory}/nixos-workspace";
-  };
-
-  programs.git = {
-    enable = true;
-    settings = {
-      userName = "Guilherme Galaverna";
-      userEmail = "guigalaverna@gmail.com";
-    };
-  };
 
   home.packages = with pkgs; [
     fastfetch
@@ -40,14 +33,6 @@
     pciutils
     usbutils
   ];
-
-  services.flatpak = {
-    packages = [
-      "app.zen_browser.zen"
-      "com.discordapp.Discord"
-      "com.usebottles.bottles"
-    ];
-  };
 
   programs.home-manager.enable = true;
 }
