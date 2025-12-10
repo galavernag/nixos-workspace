@@ -1,4 +1,5 @@
-{ nix-flaktpak, pkgs, ... }:{
+{ nix-flaktpak, pkgs, ... }:
+{
   services.flatpak = {
     enable = true;
     update.auto = {

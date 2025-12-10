@@ -1,4 +1,10 @@
-{config, home, nix-flatpak, ... }: {
+{
+  config,
+  home,
+  nix-flatpak,
+  ...
+}:
+{
   imports = [
     nix-flatpak.homeManagerModules.nix-flatpak
   ];

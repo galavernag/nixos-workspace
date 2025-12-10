@@ -1,4 +1,7 @@
-{ config, pkgs, nix-flatpak, ... }:
+{
+  pkgs,
+  ...
+}:
 {
   imports = [
     ./modules/environment-variables.nix
