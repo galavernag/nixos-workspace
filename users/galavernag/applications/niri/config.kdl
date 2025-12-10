@@ -64,7 +64,7 @@ animations {
 // INICIALIZAÇÃO
 // ==========================
 
-// spawn-at-startup "waybar"
+spawn-at-startup "awww-daemon"
 
 // Caminho para salvar screenshots
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"

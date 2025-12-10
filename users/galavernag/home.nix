@@ -43,6 +43,7 @@
     nixd
 
     fuzzel
+    xwayland-satellite
   ];
 
   programs.home-manager.enable = true;
