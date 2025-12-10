@@ -44,6 +44,7 @@ outputs = { self, nixpkgs, nixpkgs-unstable, nix-flatpak, home-manager } @ input
             ./modules/nix-settings.nix
             ./modules/services.nix
             ./modules/users.nix
+            ./modules/virtualisation.nix
             ./modules/wine.nix
 
             ./applications/nh.nix

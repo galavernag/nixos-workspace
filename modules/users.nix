@@ -3,7 +3,7 @@
   users.users.galavernag = {
     isNormalUser = true;
     description = "Guilherme Galaverna";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     shell = pkgs-stable.zsh;
   };
 }
