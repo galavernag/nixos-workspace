@@ -1,3 +1,5 @@
+include "noctalia.kdl"
+
 input {
     keyboard {
         xkb {
@@ -26,33 +28,6 @@ layout {
     }
 
     default-column-width { proportion 0.5; }
-
-    focus-ring {
-        width 4
-        active-color "#7fc8ff"
-        inactive-color "#505050"
-    }
-
-    border {
-        off
-        width 4
-        active-color "#ffc87f"
-        inactive-color "#505050"
-        urgent-color "#9b0000"
-    }
-
-    shadow {
-        softness 30
-        spread 5
-        offset x=0 y=5
-        color "#0007"
-    }
-
-    // Espaço reservado para barras (como waybar) caso necessário
-    struts {
-        // left 64
-        // top 64
-    }
 }
 
 // Configurações de Animação
@@ -64,10 +39,8 @@ animations {
 // INICIALIZAÇÃO
 // ==========================
 
-spawn-at-startup "awww-daemon"
-
 // Caminho para salvar screenshots
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/Imagens/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 // ==========================
 // REGRAS DE JANELA (WINDOW RULES)
@@ -92,9 +65,15 @@ window-rule {
     block-out-from "screen-capture"
 }
 
-/-window-rule {
+window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
+}
+
+// Set the overview wallpaper on the backdrop.
+layer-rule {
+  match namespace="^noctalia-overview*"
+  place-within-backdrop true
 }
 
 // ==========================
