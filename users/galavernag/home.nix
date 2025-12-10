@@ -10,6 +10,8 @@
     ./applications/git.nix
     ./applications/starship.nix
     ./applications/zsh.nix
+
+    ./applications/niri/default.nix
   ];
 
   home.username = "galavernag";
