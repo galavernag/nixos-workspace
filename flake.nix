@@ -28,7 +28,7 @@ outputs = { self, nixpkgs, nixpkgs-unstable, nix-flatpak, home-manager } @ input
       { nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem { # Replace "nixos" with your system's hostname
           specialArgs = {
-            inherit inputs pkgs-stable pkgs-unstable;
+            inherit inputs nix-flatpak pkgs-stable pkgs-unstable;
           };
           system = "x86_64-linux";
           modules = [
@@ -53,7 +53,7 @@ outputs = { self, nixpkgs, nixpkgs-unstable, nix-flatpak, home-manager } @ input
        	    home-manager.nixosModules.home-manager {
        	      home-manager.useGlobalPkgs = true;
        	      home-manager.useUserPackages = true;
-
+              home-manager.extraSpecialArgs = { inherit inputs nix-flatpak pkgs-stable pkgs-unstable; };
        	      home-manager.users.galavernag = ./users/galavernag/home.nix;
        	    }
           ];

@@ -1,5 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nix-flatpak, ... }:
 {
+  imports = [
+    nix-flatpak.homeManagerModules.nix-flatpak
+  ];
+
   home.username = "galavernag";
   home.homeDirectory = "/home/galavernag";
 
@@ -11,8 +15,10 @@
 
   programs.git = {
     enable = true;
-    userName = "Guilherme Galaverna";
-    userEmail = "guigalaverna@gmail.com";
+    settings = {
+      userName = "Guilherme Galaverna";
+      userEmail = "guigalaverna@gmail.com";
+    };
   };
 
   home.packages = with pkgs; [
@@ -34,6 +40,14 @@
     pciutils
     usbutils
   ];
+
+  services.flatpak = {
+    packages = [
+      "app.zen_browser.zen"
+      "com.discordapp.Discord"
+      "com.usebottles.bottles"
+    ];
+  };
 
   programs.home-manager.enable = true;
 }
