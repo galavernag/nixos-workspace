@@ -3,7 +3,11 @@
   home.username = "galavernag";
   home.homeDirectory = "/home/galavernag";
 
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
+
+  home.sessionVariables = {
+    NH_OS_FLAKE = "${config.home.homeDirectory}/nixos-workspace";
+  };
 
   programs.git = {
     enable = true;

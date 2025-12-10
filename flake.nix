@@ -2,11 +2,11 @@
   description = "A very basic flake";
 
   inputs = {
-     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
      nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
      nix-flatpak.url = "github:gmodena/nix-flatpak";
      home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
      };
   };
@@ -47,7 +47,7 @@ outputs = { self, nixpkgs, nixpkgs-unstable, nix-flatpak, home-manager } @ input
 
             ./applications/nh.nix
             ./applications/niri.nix
-            ./applications/orca-slicer.nix
+            # ./applications/orca-slicer.nix
             ./applications/steam.nix
 
        	    home-manager.nixosModules.home-manager {
