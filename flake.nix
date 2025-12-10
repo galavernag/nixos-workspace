@@ -38,6 +38,7 @@ outputs = { self, nixpkgs, nixpkgs-unstable, nix-flatpak, home-manager } @ input
             ./modules/audio.nix
             ./modules/desktop.nix
             ./modules/flatpak.nix
+            ./modules/fonts.nix
             ./modules/localisation.nix
             ./modules/networking.nix
             ./modules/nix-settings.nix

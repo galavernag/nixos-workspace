@@ -32,6 +32,9 @@
     lm_sensors
     pciutils
     usbutils
+
+    nil
+    nixd
   ];
 
   programs.home-manager.enable = true;
