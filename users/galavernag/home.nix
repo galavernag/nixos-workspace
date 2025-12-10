@@ -6,12 +6,13 @@
   imports = [
     ./modules/environment-variables.nix
 
+    ./applications/niri/default.nix
+
     ./applications/flatpak.nix
     ./applications/git.nix
+    ./applications/kitty.nix
     ./applications/starship.nix
     ./applications/zsh.nix
-
-    ./applications/niri/default.nix
   ];
 
   home.username = "galavernag";
@@ -40,6 +41,8 @@
 
     nil
     nixd
+
+    fuzzel
   ];
 
   programs.home-manager.enable = true;
