@@ -2,16 +2,23 @@
   description = "A very basic flake";
 
   inputs = {
-     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
-     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-     nix-flatpak.url = "github:gmodena/nix-flatpak";
-     home-manager = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
+    home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
-     };
+    };
   };
 
-outputs = { self, nixpkgs, nixpkgs-unstable, nix-flatpak, home-manager } @ inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs-unstable,
+      nix-flatpak,
+      home-manager,
+    }@inputs:
     let
       system = "x86_64-linux";
 
@@ -25,10 +32,17 @@ outputs = { self, nixpkgs, nixpkgs-unstable, nix-flatpak, home-manager } @ input
         config.allowUnfree = true;
       };
     in
-      { nixosConfigurations = {
-        nixos = nixpkgs.lib.nixosSystem { # Replace "nixos" with your system's hostname
+    {
+      nixosConfigurations = {
+        nixos = nixpkgs.lib.nixosSystem {
+          # Replace "nixos" with your system's hostname
           specialArgs = {
-            inherit inputs nix-flatpak pkgs-stable pkgs-unstable;
+            inherit
+              inputs
+              nix-flatpak
+              pkgs-stable
+              pkgs-unstable
+              ;
           };
           system = "x86_64-linux";
           modules = [
@@ -39,6 +53,7 @@ outputs = { self, nixpkgs, nixpkgs-unstable, nix-flatpak, home-manager } @ input
             ./modules/desktop.nix
             ./modules/flatpak.nix
             ./modules/fonts.nix
+            ./modules/gaming.nix
             ./modules/localisation.nix
             ./modules/networking.nix
             ./modules/nix-settings.nix
@@ -49,17 +64,24 @@ outputs = { self, nixpkgs, nixpkgs-unstable, nix-flatpak, home-manager } @ input
 
             ./applications/nh.nix
             ./applications/niri.nix
-            # ./applications/orca-slicer.nix
-            ./applications/steam.nix
+            ./applications/orca-slicer.nix
 
-       	    home-manager.nixosModules.home-manager {
-       	      home-manager.useGlobalPkgs = true;
-       	      home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit inputs nix-flatpak pkgs-stable pkgs-unstable; };
-       	      home-manager.users.galavernag = ./users/galavernag/home.nix;
-       	    }
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                inherit
+                  inputs
+                  nix-flatpak
+                  pkgs-stable
+                  pkgs-unstable
+                  ;
+              };
+              home-manager.users.galavernag = ./users/galavernag/home.nix;
+            }
           ];
         };
       };
-  };
+    };
 }
