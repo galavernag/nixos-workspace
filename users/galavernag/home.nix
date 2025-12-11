@@ -12,7 +12,7 @@
     ./applications/flatpak.nix
     ./applications/git.nix
     ./applications/noctalia.nix
-    ./applications/starship.nix
+    # ./applications/starship.nix
     ./applications/zsh.nix
   ];
 

@@ -169,7 +169,7 @@
         customLaunchPrefixEnabled = false;
         customLaunchPrefix = "";
         viewMode = "list";
-        showCategories = true;
+        showCategories = false;
       };
       controlCenter = {
         position = "close_to_bar_button";
@@ -353,8 +353,8 @@
         gtk = true;
         qt = true;
         kcolorscheme = true;
-        alacritty = false;
-        kitty = true;
+        alacritty = true;
+        kitty = false;
         ghostty = false;
         foot = false;
         wezterm = false;
