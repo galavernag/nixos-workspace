@@ -15,6 +15,7 @@
           family = "JetBrainsMono Nerd Font";
           style = "Regular";
         };
+        size = 11.0;
       };
       cursor.style = {
         shape = "Beam";
