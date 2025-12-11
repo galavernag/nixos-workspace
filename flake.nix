@@ -55,7 +55,7 @@
             ./hosts/nixos/configuration.nix
 
             ./modules/audio.nix
-            ./modules/desktop.nix
+            # ./modules/desktop.nix
             ./modules/flatpak.nix
             ./modules/fonts.nix
             ./modules/gaming.nix

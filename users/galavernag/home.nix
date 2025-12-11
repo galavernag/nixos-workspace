@@ -31,6 +31,7 @@
     xz
     unzip
     p7zip
+    kdePackages.dolphin
 
     zed-editor
     btop
