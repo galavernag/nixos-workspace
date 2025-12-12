@@ -1,6 +1,13 @@
 {
-  networking.hostName = "nixos"; # Define your hostname.
+  networking = {
+    hostName = "nixos";
 
-  # Enable networking
-  networking.networkmanager.enable = true;
+    networkmanager.enable = true;
+
+    interfaces = {
+      enp2s0 = {
+        wakeOnLan.enable = true;
+      };
+    };
+  };
 }
