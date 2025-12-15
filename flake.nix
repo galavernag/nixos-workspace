@@ -54,8 +54,7 @@
             nix-flatpak.nixosModules.nix-flatpak
             ./hosts/nixos/settings.nix
 
-            ./applications/nh.nix
-            ./applications/niri.nix
+            ./modules/default.nix
 
             home-manager.nixosModules.home-manager
             {
