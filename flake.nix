@@ -58,6 +58,7 @@
 
             ./applications/nh.nix
             ./applications/niri.nix
+            ./applications/hyprland.nix
 
             home-manager.nixosModules.home-manager
             {
