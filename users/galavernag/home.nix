@@ -6,6 +6,8 @@
   imports = [
     ./modules/environment-variables.nix
 
+    ./dotfiles/default.nix
+
     ./applications/niri/default.nix
 
     ./applications/alacritty.nix
