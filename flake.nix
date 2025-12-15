@@ -54,16 +54,12 @@
             nix-flatpak.nixosModules.nix-flatpak
             ./hosts/nixos/configuration.nix
 
-            ./modules/audio.nix
+            ./modules/system/default.nix
+
             ./modules/desktop.nix
             ./modules/flatpak.nix
             ./modules/fonts.nix
             ./modules/gaming.nix
-            ./modules/localisation.nix
-            ./modules/networking.nix
-            ./modules/nix-settings.nix
-            ./modules/services.nix
-            ./modules/users.nix
             ./modules/virtualisation.nix
             ./modules/wine.nix
 
