@@ -46,6 +46,8 @@
     nil
     nixd
 
+    kitty
+
     fuzzel
     xwayland-satellite
   ];
