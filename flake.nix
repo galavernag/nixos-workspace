@@ -52,16 +52,7 @@
           system = "x86_64-linux";
           modules = [
             nix-flatpak.nixosModules.nix-flatpak
-            ./hosts/nixos/configuration.nix
-
-            ./modules/system/default.nix
-
-            ./modules/desktop.nix
-            ./modules/flatpak.nix
-            ./modules/fonts.nix
-            ./modules/gaming.nix
-            ./modules/virtualisation.nix
-            ./modules/wine.nix
+            ./hosts/nixos/settings.nix
 
             ./applications/nh.nix
             ./applications/niri.nix

@@ -5,11 +5,11 @@
   ...
 }:
 let
-  cfg = config.modules.applications.gaming.steam;
+  cfg = config.modules.applications.gaming;
 in
 {
-  options.modules.applications.gaming.steam = {
-    enable = lib.mkEnableOption "Habilita Steam";
+  options.modules.applications.gaming = {
+    enable = lib.mkEnableOption "Habilita configurações para jogos";
   };
 
   config = lib.mkIf cfg.enable {

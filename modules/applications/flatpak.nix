@@ -9,7 +9,7 @@ let
 in
 {
   options.modules.applications.flatpak = {
-    enable = true;
+    enable = lib.mkEnableOption "Habilita Flatpak";
   };
 
   config = lib.mkIf cfg.enable {
