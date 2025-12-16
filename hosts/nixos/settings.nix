@@ -11,8 +11,9 @@
     };
 
     desktop = {
-      plasma.enable = true;
-      hyprland.enable = true;
+      # plasma.enable = true;
+      # hyprland.enable = true;
+      niri.enable = true;
     };
 
     applications = {

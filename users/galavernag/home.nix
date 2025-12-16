@@ -8,8 +8,6 @@
 
     ./dotfiles/default.nix
 
-    ./applications/niri/default.nix
-
     ./applications/alacritty.nix
     ./applications/flatpak.nix
     ./applications/git.nix
@@ -47,6 +45,7 @@
     nixd
 
     kitty
+    waybar
 
     fuzzel
     xwayland-satellite

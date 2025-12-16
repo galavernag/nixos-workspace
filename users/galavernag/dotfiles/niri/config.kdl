@@ -66,7 +66,7 @@ window-rule {
 }
 
 window-rule {
-    geometry-corner-radius 12
+    geometry-corner-radius 8
     clip-to-geometry true
 }
 
@@ -85,7 +85,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // --- Aplicações e Sistema ---
-    Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
+    Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Open app center" { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; } // Leitor de tela
