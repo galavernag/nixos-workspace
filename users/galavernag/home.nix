@@ -4,16 +4,9 @@
 }:
 {
   imports = [
-    ./modules/environment-variables.nix
-
     ./dotfiles/default.nix
 
-    ./applications/alacritty.nix
-    ./applications/flatpak.nix
-    ./applications/git.nix
-    ./applications/noctalia.nix
-    # ./applications/starship.nix
-    ./applications/zsh.nix
+    ./applications/default.nix
   ];
 
   home.username = "galavernag";

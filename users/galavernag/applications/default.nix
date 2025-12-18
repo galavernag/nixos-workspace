@@ -1,9 +1,6 @@
 {
   imports = [
     ./flatpak/default.nix
-    ./alacritty.nix
-    ./git.nix
-    ./zsh.nix
   ];
 
   # definindo programas
