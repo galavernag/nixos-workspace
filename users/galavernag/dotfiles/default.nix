@@ -12,6 +12,9 @@
 
     "noctalia-shell/settings.json".source = ./noctalia-shell/settings.json;
 
+    "waybar/config.jsonc".source = ./waybar/config.jsonc;
+    "waybar/style.css".source = ./waybar/style.css;
+
     "niri/config.kdl".source = ./niri/config.kdl;
   };
 }

@@ -15,6 +15,8 @@ input {
 
 prefer-no-csd
 
+spawn-at-startup "waybar"
+
 cursor {
     xcursor-theme "breeze_cursors"
     xcursor-size 48
@@ -107,7 +109,7 @@ binds {
 
     // --- Aplicações e Sistema ---
     Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Mod+D hotkey-overlay-title="Open app center" { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+D hotkey-overlay-title="Open app center" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; } // Leitor de tela
 

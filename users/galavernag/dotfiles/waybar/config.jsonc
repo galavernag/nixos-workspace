@@ -1,0 +1,44 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 10,
+
+  "modules-left": ["niri/workspaces", "clock"],
+  "modules-center": ["niri/window"],
+  "modules-right": [
+    "tray",
+    "temperature",
+    "cpu",
+    "memory",
+    "disk",
+    "pulseaudio",
+  ],
+
+  "niri/workspaces": {
+    "format": "{index}",
+  },
+
+  "clock": {
+    "format": "   {:%H:%M}",
+  },
+
+  "temperature": {
+    "format": " {temperatureC}°C",
+  },
+
+  "cpu": {
+    "format": " {usage}%",
+  },
+
+  "memory": {
+    "format": " {percentage}%",
+  },
+
+  "disk": {
+    "format": "󰋊 {percentage_used}%",
+  },
+
+  "pulseaudio": {
+    "format": " {volume}% {icon}",
+  },
+}
