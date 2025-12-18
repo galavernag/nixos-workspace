@@ -5,10 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    awww.url = "git+https://codeberg.org/LGFae/awww";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,7 +19,7 @@
       nixpkgs-unstable,
       nix-flatpak,
       home-manager,
-      noctalia,
+      awww,
     }@inputs:
     let
       system = "x86_64-linux";
@@ -47,6 +44,7 @@
               nix-flatpak
               pkgs-stable
               pkgs-unstable
+              awww
               ;
           };
           system = "x86_64-linux";
