@@ -10,6 +10,10 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -20,6 +24,7 @@
       nix-flatpak,
       home-manager,
       awww,
+      noctalia,
     }@inputs:
     let
       system = "x86_64-linux";
@@ -45,6 +50,7 @@
               pkgs-stable
               pkgs-unstable
               awww
+              noctalia
               ;
           };
           system = "x86_64-linux";
@@ -68,6 +74,16 @@
               };
               home-manager.users.galavernag = ./users/galavernag/home.nix;
             }
+            ({
+              imports = [
+                inputs.noctalia.nixosModules.default
+              ];
+
+              environment.systemPackages = with pkgs-stable; [
+                inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+              ];
+              services.noctalia-shell.enable = true;
+            })
           ];
         };
       };
