@@ -28,12 +28,12 @@
   boot.kernelPackages = pkgs-stable.linuxPackages_zen;
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/9df20958-4b6f-4f00-ade8-493391308a45";
-    fsType = "ext4";
+    device = "/dev/disk/by-label/system";
+    fsType = "btrfs";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/008D-CBFA";
+    device = "/dev/disk/by-label/boot";
     fsType = "vfat";
     options = [
       "fmask=0077"
@@ -42,12 +42,12 @@
   };
 
   fileSystems."/files" = {
-    device = "/dev/disk/by-uuid/04be3699-87f4-4b05-8330-d8ff54c400fe";
+    device = "/dev/disk/by-label/files";
     fsType = "btrfs";
   };
 
   swapDevices = [
-    { device = "/dev/disk/by-uuid/8425cc41-a391-4cdf-861a-2ac1a8b467e0"; }
+    { device = "/dev/disk/by-label/swap"; }
   ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

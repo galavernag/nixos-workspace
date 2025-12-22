@@ -11,17 +11,17 @@
     };
 
     desktop = {
-      # plasma.enable = true;
+      plasma.enable = true;
       # hyprland.enable = true;
-      niri.enable = true;
-      cosmic.enable = true;
+      # niri.enable = true;
+      # cosmic.enable = true;
 
-      awww.enable = true;
+      # awww.enable = true;
     };
 
     applications = {
       flatpak.enable = true;
-      gaming.enable = true;
+      # gaming.enable = true;
     };
   };
 
