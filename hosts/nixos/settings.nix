@@ -12,8 +12,8 @@
 
     desktop = {
       # plasma.enable = true;
-      hyprland.enable = true;
-      # niri.enable = true;
+      # hyprland.enable = true;
+      niri.enable = true;
       # cosmic.enable = true;
 
       # awww.enable = true;
