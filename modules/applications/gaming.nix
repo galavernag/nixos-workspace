@@ -18,7 +18,6 @@ in
       enable32Bit = true;
       extraPackages = with pkgs-stable; [
         intel-media-driver
-        intel-ocl
         intel-vaapi-driver
       ];
     };
@@ -40,6 +39,7 @@ in
     environment.systemPackages = with pkgs-stable; [
       mangohud
       protonup-qt
+      steam-run
       # lutris
       # heroic
     ];

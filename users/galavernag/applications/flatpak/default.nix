@@ -14,6 +14,12 @@ in
 
   services.flatpak = {
     enable = true;
-    packages = flatpakList;
+    packages = flatpakList ++ [
+      {
+        bundle = "file:///home/galavernag/Downloads/OrcaSlicer-Linux-flatpak_V2.3.1_x86_64.flatpak";
+        sha256 = "0chhgiq3rq6433s1dx7qrdds6p183bjjc00yaf09gi4yxjgrwywp";
+        appId = "io.github.softfever.OrcaSlicer";
+      }
+    ];
   };
 }

@@ -3,3 +3,4 @@ com.discordapp.Discord
 com.usebottles.bottles
 org.vinegarhq.Sober
 io.ente.auth
+org.upscayl.Upscayl
