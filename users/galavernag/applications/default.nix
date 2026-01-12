@@ -1,7 +1,6 @@
 {
   imports = [
     ./flatpak/default.nix
-    ./noctalia-shell.nix
   ];
 
   # definindo programas
