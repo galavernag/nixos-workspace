@@ -22,5 +22,9 @@
   services.displayManager.sddm.enable = true;
 
 
+  systemd.tmpfiles.rules = [
+    "d /media/storage 0775 seu_usuario users -"
+    "d /media/games 0775 seu_usuario users -"
+  ];
   system.stateVersion = "25.11"; # Did you read the comment?
 }

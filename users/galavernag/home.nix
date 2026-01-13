@@ -39,11 +39,6 @@
 
   ];
 
-  #home.sessionVariables = {
-  #  QML2_IMPORT_PATH = "${pkgs.kdePackages.kirigami}/lib/${
-  #    pkgs.lib.replaceStrings [ "full-" ] [ "" ] pkgs.kdePackages.qtbase.name
-  #  }/qml";
-  #};
-
+  services.ssh-agent.enable = true; 
   programs.home-manager.enable = true;
 }

@@ -3,4 +3,3 @@ com.discordapp.Discord
 com.usebottles.bottles
 io.ente.auth
 com.spotify.Client
-org.freedownloadmanager.Manager
